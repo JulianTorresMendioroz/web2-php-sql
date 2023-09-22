@@ -4,6 +4,12 @@
 
 Torres Mendioroz Julian - Felipe Barreyra.
 
+- Emails:
+
+- Julian: juliantorresmendioroz348@gmail.com
+
+- Felipe: felipebarreyra@gmail.com
+
 - Temática del TPE:
   
 Ecommerce Web de venta de productos de indumentaria.

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-09-2023 a las 20:56:50
+-- Tiempo de generación: 25-09-2023 a las 21:17:52
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -28,16 +28,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `category` (
-  `id_category` int(100) NOT NULL,
-  `name_category` varchar(200) NOT NULL,
-  `season_category` varchar(200) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `season` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `category`
 --
 
-INSERT INTO `category` (`id_category`, `name_category`, `season_category`) VALUES
+INSERT INTO `category` (`id`, `name`, `season`) VALUES
 (1, 'Buzos', 'Invierno');
 
 -- --------------------------------------------------------
@@ -48,11 +48,19 @@ INSERT INTO `category` (`id_category`, `name_category`, `season_category`) VALUE
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
-  `name` varchar(200) NOT NULL,
-  `description` varchar(200) NOT NULL,
-  `price` int(100) NOT NULL,
-  `id_categoty_fk` int(100) DEFAULT NULL
+  `img` varchar(250) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `price` int(200) NOT NULL,
+  `fk_id_category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `products`
+--
+
+INSERT INTO `products` (`id`, `img`, `name`, `description`, `price`, `fk_id_category`) VALUES
+(1, 'https://www.localesbambaci.com.ar/cdn/shop/products/4496807571d24403bf2eac8201247019_9366_1200x1200.jpg?v=1648560199', 'Buzo Adidas', 'Buzo Adidas con capucha', 15000, 1);
 
 --
 -- Índices para tablas volcadas
@@ -62,14 +70,14 @@ CREATE TABLE `products` (
 -- Indices de la tabla `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`id_category`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_categoty_fk` (`id_categoty_fk`);
+  ADD KEY `fk_category` (`fk_id_category`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -79,13 +87,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de la tabla `category`
 --
 ALTER TABLE `category`
-  MODIFY `id_category` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -95,7 +103,7 @@ ALTER TABLE `products`
 -- Filtros para la tabla `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`id_categoty_fk`) REFERENCES `category` (`id_category`);
+  ADD CONSTRAINT `fk_category` FOREIGN KEY (`fk_id_category`) REFERENCES `category` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

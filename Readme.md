@@ -11,7 +11,7 @@ Torres Mendioroz Julian - Felipe Barreyra.
 - Felipe: felipebarreyra@gmail.com
 
 - Temática del TPE:
-  
+
 Ecommerce Web de venta de productos de indumentaria.
 
 - Breve descripción de la temática:

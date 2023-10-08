@@ -23,6 +23,7 @@ class ProductModel {
         return $products;
     }
 
+    // Importante: En cada ítem siempre se debe mostrar el nombre de la categoría a la que pertenece.
     public function getProductById($id){
 
         $query = $this->db->prepare('SELECT * FROM products WHERE id=?');

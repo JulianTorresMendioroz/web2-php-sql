@@ -47,18 +47,15 @@ class UserModel{
 
     }
 
-    public function getUser($id){
+    public function getUser($user){
 
-        $query = $this->db->prepare('SELECT * FROM client WHERE id=?');
+        $query = $this->db->prepare('SELECT * FROM client WHERE username=?');
     
-        $query->execute([$id]);
+        $query->execute([$user]);
     
         $user = $query->fetch(PDO::FETCH_OBJ);
     
         return $user;
     }
-
-
-
 
 }

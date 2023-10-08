@@ -1,22 +1,20 @@
 <?php
 
-require_once 'MVC/model/ProductModel.php';
-require_once 'MVC/view/ProductView.php';
-require_once 'MVC/controller/controller.php';
+require_once 'app/model/product.model.php';
+require_once 'app/view/product.view.php';
+require_once 'app/helpers/auth.helpers.php';
 
-class ProductController extends Controller{
+class ProductController{
 
     private $model;
     private $view;
 
     public function __construct(){
-
-        //llama al constructor de la clase controller
-        parent::__construct();
+        //me aseguro que este logueado
+        //AuthHelper::verify();
+        session_start();
         $this->model = new ProductModel();
-        //le paso el usuario 
-        $this->view = new ProductView($this->user);
-
+        $this->view = new ProductView();
     }
 
     public function showAllProducts(){

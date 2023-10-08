@@ -23,18 +23,23 @@
         <a class="nav-link active" aria-current="page" href="home">Home</a>
         <a class="nav-link active" href="category">Invierno</a>
         <a class="nav-link active" href="category">Verano</a>
-        <div class="buttons"><?php if($this->user){
+        <div class="buttons"><?php if(isset($_SESSION['user'])&&($_SESSION['logged'] == true)&&($_SESSION['rol'] == 'user')){
+          var_dump($_SESSION);
           ?>
-           <a type="button" href="logout" class="btn btn-info">Salir</a>
+           <a type="button" href="logout" class="btn btn-info">Salir - Usuario <?php echo $_SESSION['user'] ?></a>
            <?php
-        } else {
-          
+        } else if(isset($_SESSION['user'])&&($_SESSION['logged'] == true)&&($_SESSION['rol'] == 'admin')){
           ?>
+          <a type="button" href="agregar" class="btn btn-info">Agregar Producto</a>
+          <a type="button" href="login" class="btn btn-warning">Admin</a>
+          <a type="button" href="logout" class="btn btn-info">Salir - Usuario <?php echo  $_SESSION['user'] ?></a>
+          <?php
+        } else {
+      ?>
           <a type="button" href="register" class="btn btn-info">Registrarse</a>
-          <a type="button" href="login" class="btn btn-warning">Ingresar</a>
-<?php
+          <a type="button" href="login" class="btn btn-warning">Ingresar</a>?>  
+          <?php
         }?>
-      
         </div>
       </div>
     </div>

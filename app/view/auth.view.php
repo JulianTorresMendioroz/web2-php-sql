@@ -40,10 +40,20 @@ class AuthView {
            
             <button type="submit" class="btn btn-primary">Ingresar</button>
         </form>
-<?php
-        require_once 'templates/footer.php';
+        <?php
+        require_once 'templates/header.php';
     }
 
+    public function showError(){
+        require_once 'templates/header.php';
+        ?>
+        <div>
+        <h3>Error</h3>
+        </div>
+        <?php
+        require_once 'templates/footer.php';
+
+    }
 
 }
-
+        ?>

@@ -1,9 +1,9 @@
 <?php
 
-require_once 'MVC/controller/ProductController.php';
-require_once 'MVC/controller/LoginController.php';
-require_once 'MVC/controller/UserController.php';
-
+require_once 'app/controller/product.controller.php';
+require_once 'app/controller/auth.controller.php';
+require_once 'app/controller/admin.controller.php';
+require_once 'app/helpers/auth.helpers.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -15,8 +15,10 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action); 
 
 $ProductController = new ProductController();
-$AuthController = new LoginController();
-$UserController = new UserController();
+$AuthController = new AuthController();
+$AdminController = new AdminController();
+$AuthHelper = new AuthHelper();
+
 
 
 switch ($params[0]) {
@@ -27,16 +29,13 @@ switch ($params[0]) {
         $AuthController->showRegister();
      break;
      case 'registered':
-        $UserController->registered();
+        $AuthController->registered();
      break;
      case 'logged':
-        $UserController->logged();
+        $AuthController->logged();
      break;
      case 'logout':
-        $UserController->logout();
-     break;
-     case 'user':
-        $UserController->logged();
+        $AuthHelper->logout();
      break;
     case 'home':
        $ProductController->showAllProducts();
@@ -44,6 +43,12 @@ switch ($params[0]) {
     case 'descripcion':
         $ProductController->showDescriptionProduct($params[1]);
     break;
+    case 'agregar':
+      $AdminController->addProduct();
+  break;
+    case 'eliminar':
+      $AdminController->deleteProductById($params[1]);
+  break;
     default: 
         echo "404 Page Not Found";
         break;

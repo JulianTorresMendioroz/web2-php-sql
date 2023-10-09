@@ -18,9 +18,9 @@ class CategoryModel {
 
         $query->execute();
 
-        $category = $query->fetchAll(PDO::FETCH_OBJ);
+        $categories = $query->fetchAll(PDO::FETCH_OBJ);
 
-        return $category;
+        return $categories;
     }
     public function getCategoryBySeason($season) {
 

@@ -22,7 +22,7 @@ class CategoryController{
 
         }else{
 
-            echo "Error: No hay categorias";
+            $this->view->showError();
         }
 
     }

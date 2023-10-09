@@ -22,7 +22,7 @@ class CategoryModel {
 
         return $category;
     }
-    public function getCategoryBySeasson($season = 'verano') {
+    public function getCategoryBySeason($season = 'verano') {
 
         $query = $this->db->prepare('SELECT * FROM category WHERE season = ?');
     
@@ -32,7 +32,7 @@ class CategoryModel {
     
         return $category;
     }
-    public function getCategoryBySeasson($season = 'invierno') {
+    public function getCategoryBySeason($season = 'invierno') {
 
         $query = $this->db->prepare('SELECT * FROM category WHERE season = ?');
     

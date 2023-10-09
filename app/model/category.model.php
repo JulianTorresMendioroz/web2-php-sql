@@ -22,26 +22,17 @@ class CategoryModel {
 
         return $category;
     }
-    public function getCategorySummer($season = 'verano') {
+    public function getCategoryBySeason($season) {
 
         $query = $this->db->prepare('SELECT * FROM category WHERE season = ?');
-    
+        
         $query->execute([$season]);
-    
-        $category = $query->fetch(PDO::FETCH_OBJ);
-    
-        return $category;
+        
+        $categories = $query->fetchAll(PDO::FETCH_OBJ);
+        
+        return $categories;
     }
-    public function getCategoryWinter($season = 'invierno') {
-
-        $query = $this->db->prepare('SELECT * FROM category WHERE season = ?');
-    
-        $query->execute([$season]);
-    
-        $category = $query->fetch(PDO::FETCH_OBJ);
-    
-        return $category;
-    }
+   
     public function deleteCategory($id){
         $query=$this->db->prepare('DELETE FROM category WHERE id=?');
 

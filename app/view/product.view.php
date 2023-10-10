@@ -11,7 +11,7 @@ class ProductView{
         <div class="card" style="width: 18rem;">
             <img src="<?php echo $product->img ?>" class="card-img-top" alt="imageProduct">
         <div class="card-body">
-        <h5 class="card-title"><?php echo $product->name ?></h5>
+        <h5 class="card-title"></h5>
         <a href="descripcion/<?php echo $product->id ?>" class="btn btn-primary">Ver detalles</a>
         <?php
         if(isset($_SESSION['user'])&&($_SESSION['logged'] == true)&&($_SESSION['rol'] == 'admin')){

@@ -26,5 +26,6 @@ class CategoryController{
         }
 
     }
+    public function addCategory
     
 }

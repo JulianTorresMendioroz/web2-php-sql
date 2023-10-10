@@ -39,17 +39,14 @@ class CategoryModel {
         $query->execute([$id]);
 
         $categories= $query->fetch(PDO::FETCH_OBJ);
-
-        return $categories;
     }
-    public function insertCategory($id,$name,$season){
+    public function addCategory($id,$name,$season){
 
-        $query = $this->db->prepare('INSERT INTO category VALUES id=NULL,?,?);
+        $query = $this->db->prepare('INSERT INTO category VALUES id=NULL,?,?');
 
         $query->execute([$id,$name,$season]);
-
-        return $this->db->lastId();
     }
-    
+
+}   
 
 

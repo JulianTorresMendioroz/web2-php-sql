@@ -30,8 +30,10 @@
            <?php
         } else if(isset($_SESSION['user'])&&($_SESSION['logged'] == true)&&($_SESSION['rol'] == 'admin')){
           ?>
-          <a type="button" href="agregar" class="btn btn-info">Agregar Producto</a>
-          <a type="button" href="login" class="btn btn-warning">Admin</a>
+          <a type="button" href="listar" class="btn btn-primary">Listar todos los productos</a>
+          <a type="button" href="agregar" class="btn btn-success">Agregar productos</a>
+          <a type="button" href="actualizar" class="btn btn-secondary">Actualizar productos</a>
+          <a type="button" href="eliminar" class="btn btn-danger">Eliminar producto</a>
           <a type="button" href="logout" class="btn btn-info">Salir - Usuario <?php echo  $_SESSION['user'] ?></a>
           <?php
         } else {

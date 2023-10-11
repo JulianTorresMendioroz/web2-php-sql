@@ -19,8 +19,6 @@ $AuthController = new AuthController();
 $AdminController = new AdminController();
 $AuthHelper = new AuthHelper();
 
-
-
 switch ($params[0]) {
     case 'login':
         $AuthController->showLogin();
@@ -43,12 +41,25 @@ switch ($params[0]) {
     case 'descripcion':
         $ProductController->showDescriptionProduct($params[1]);
     break;
+    case 'listar':
+      $AdminController->showListProds();
+   break;
     case 'agregar':
+      $AdminController->showFormAddProduct();
+   break;
+    case 'agregarProducto':
       $AdminController->addProduct();
-  break;
-    case 'eliminar':
+   break;
+   case 'actualizar':
+      $AdminController->addProduct();
+   break;
+   case 'eliminar':
+      $AdminController->showDeleteProds();
+   break;
+   case 'eliminarProducto':
       $AdminController->deleteProductById($params[1]);
-  break;
+   break;
+   
     default: 
         echo "404 Page Not Found";
         break;

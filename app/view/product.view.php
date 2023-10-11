@@ -13,21 +13,11 @@ class ProductView{
         <div class="card-body">
         <h5 class="card-title"><?php echo $product->name?></h5>
         <a href="descripcion/<?php echo $product->id ?>" class="btn btn-primary">Ver detalles</a>
-        <?php
-        if(isset($_SESSION['user'])&&($_SESSION['logged'] == true)&&($_SESSION['rol'] == 'admin')){
-            ?>
-        <a href="eliminar/<?php echo $product->id ?>" class="btn btn-danger">Eliminar producto</a>
-    <?php
-        }
-    ?>
         </div>
     </div>
-<?php 
+<?php
         }
-        
-        require_once 'templates/add_prod.php';
-        
-        require_once('templates/footer.php');
+         require_once('templates/footer.php');
 
     }
 

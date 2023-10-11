@@ -15,6 +15,7 @@ class CategoryView {
             <ul class="dropdown-menu">
             <ul class = "menú desplegable" role = "menú" aria-labelledby = "menú desplegable" >   
              <li> <a tabindex = "-1" href = "#" > <?php echo $category->name ?> </a></li>  
+             <li> <a tabindex = "-1" href = "#" > <?php echo $category->season ?> </a></li>  
             </ul>
             </div>
             <?php

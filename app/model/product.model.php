@@ -38,5 +38,15 @@ class ProductModel {
     public function getProductByCategory($id){
 
     }
+    public function getProductBySeason($season) {
+
+        $query = $this->db->prepare('SELECT * FROM products WHERE season = ?');
+        
+        $query->execute([$season]);
+        
+        $categories = $query->fetchAll(PDO::FETCH_OBJ);
+        
+        return $categories;
+    }
 
 }

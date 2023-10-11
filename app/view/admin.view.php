@@ -8,7 +8,7 @@ class AdminView {
         
         require_once 'templates/header.php';
         
-        ?>
+        ?> 
                 <form action="agregarProducto" method="POST">
                     <h2>Agregar Producto:</h2>
                     <div class="form-group">
@@ -59,6 +59,9 @@ class AdminView {
 
     }
 
+    public function showProdsOfUpdated($products){
+        //Terminar
+    }
 
 
 }

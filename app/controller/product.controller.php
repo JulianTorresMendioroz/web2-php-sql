@@ -3,11 +3,13 @@
 require_once 'app/model/product.model.php';
 require_once 'app/view/product.view.php';
 require_once 'app/helpers/auth.helpers.php';
+require_once 'app/model/category.model.php';
 
 class ProductController{
 
     private $model;
     private $view;
+    private $categoryModel;
 
     public function __construct(){
         //me aseguro que este logueado
@@ -15,7 +17,8 @@ class ProductController{
         session_start();
         $this->model = new ProductModel();
         $this->view = new ProductView();
-    }
+        $this->categoryModel = new CategoryModel();
+        }
 
     public function showAllProducts(){
        
@@ -35,10 +38,10 @@ class ProductController{
     public function showDescriptionProduct($id){
 
         $product = $this->model->getProductById($id);
-
+    
         if($product){
 
-            $this->view->showDescriptionProduct($product);
+            $this->view->showDescriptionProduct($product);    
 
         }else{
 

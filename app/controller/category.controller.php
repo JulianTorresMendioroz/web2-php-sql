@@ -26,7 +26,23 @@ class CategoryController{
         }
 
     }
-    public function addCategory(){
+    
+    public function showCategory(){
+?>
+        <label class="label_category" for="category">Categoría:</label>
+                        <select name="category" id="category">
+            <?php
+            
+                //traerme todas las categorias para matchearla con la fk
+                $categories = $this->model->getAllCategories();
+                    foreach ($categories as $category) {
+                echo "<option value='" . $category->id . "'>" . $category->season . "</option>";
+            }
+            ?>
+        </select>
+        <?php
+
+
 
     }
     

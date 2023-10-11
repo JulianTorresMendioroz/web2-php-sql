@@ -47,6 +47,16 @@ class CategoryModel {
         $query->execute([$id,$name,$season]);
     }
 
+    public function getCategory($fkProduct) {
+
+        $query = $this->db->prepare('SELECT * FROM category WHERE id == ?');
+        
+        $query->execute([$fkProduct]);
+        
+        $categories = $query->fetchAll(PDO::FETCH_OBJ);
+        
+        return $categories;
+    }
 }   
 
 

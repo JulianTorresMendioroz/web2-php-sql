@@ -22,7 +22,7 @@ class CategoryModel {
 
         return $categories;
     }
-    public function getCategoryBySeason($season) {
+    public function getElementBySeason($season) {
 
         $query = $this->db->prepare('SELECT * FROM category WHERE season = ?');
         

@@ -34,10 +34,10 @@
           <a type="button" href="agregar" class="btn btn-success">Agregar productos</a>
           <a type="button" href="actualizar" class="btn btn-secondary">Actualizar productos</a>
           <a type="button" href="eliminar" class="btn btn-danger">Eliminar producto</a>
-          <a type="button" href="listarCategoria" class="btn btn-primary">Listar todos las categoria</a>
-          <a type="button" href="agregaCategoriar" class="btn btn-success">Agregar categorias</a>
+          <a type="button" href="listarCategoria" class="btn btn-primary">Listar todas las categoria</a>
+          <a type="button" href="agregaCategoria" class="btn btn-success">Agregar categorias</a>
           <a type="button" href="actualizarCategoria" class="btn btn-secondary">Actualizar categorias</a>
-          <a type="button" href="eliminarCategoria" class="btn btn-danger">Eliminar categorias</a>
+          <a type="button" href="eliminarCategoria" class="btn btn-danger">Eliminar categoria</a>
           <a type="button" href="logout" class="btn btn-info">Salir - Usuario <?php echo  $_SESSION['user'] ?></a>
           <?php
         } else {

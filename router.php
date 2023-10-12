@@ -59,10 +59,29 @@ switch ($params[0]) {
    case 'eliminarProducto':
       $AdminController->deleteProductById($params[1]);
    break;
-   case 'winter':
-      $
+   // case 'category':
+   //    $categoryController->showCategoryBySeason();
+   case 'listarCategoria':
+      $AdminController->showListCat();
+   break;
+    case 'agregaCategoria':
+      $AdminController->showFormAddCategory();
+   break;
+    case 'agregarCategoria':
+      $AdminController->addCategory();
+   break;
+   // case 'actualizarCategoria':
+   // $AdminController->updateCategory();
+   break;
+   case 'eliminarCategoria':
+      $AdminController->showDeleteCat();
+   break;
+   case 'eliminarCategoria':
+      $AdminController->deleteCategoryById($params[1]);
+   break;
 
    
+
     default: 
         echo "404 Page Not Found";
         break;

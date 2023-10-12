@@ -1,20 +1,22 @@
-<?php 
+<?php
 
-class AdminModel {
+class AdminModel
+{
 
     private $db;
 
-    public function __construct(){
+    public function __construct()
+    {
 
         require_once 'config_db/db.php';
         $conn = new db();
         $this->db = $conn->connection();
-
     }
 
     //PRODUCTOS
 
-    public function getAllProducts(){
+    public function getAllProducts()
+    {
 
         $query = $this->db->prepare('SELECT * FROM products');
 
@@ -25,7 +27,8 @@ class AdminModel {
         return $products;
     }
 
-    public function addProduct($img, $name, $description,$price, $fk_category){
+    public function addProduct($img, $name, $description, $price, $fk_category)
+    {
 
         //añadir: poder elegir la categoría a la que pertenecen utilizando un select que muestre el nombre de la misma. 
 
@@ -35,26 +38,28 @@ class AdminModel {
 
         //muestro el ultimo id que hay
         return $this->db->lastInsertId();
-
     }
 
-    public function updatePrice($price){
+    public function updatePrice($price)
+    {
         //temrinar funcion de update
     }
 
-    public function deleteProductById($id){
+    public function deleteProductById($id)
+    {
 
         $query = $this->db->prepare('DELETE FROM products WHERE id=?');
-    
+
         $query->execute([$id]);
-    
+
         $product = $query->fetch(PDO::FETCH_OBJ);
-    
+
         return $product;
     }
 
     //CATEGORY
-    public function allCategory(){
+    public function allCategory()
+    {
 
         $query = $this->db->prepare('SELECT * FROM category');
 
@@ -63,14 +68,28 @@ class AdminModel {
         $category = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $category;
-
     }
+    public function deleteCategoryById($id)
+    {
 
-    
+        $query = $this->db->prepare('DELETE FROM category WHERE id=?');
 
-    
+        $query->execute([$id]);
 
+        $category = $query->fetch(PDO::FETCH_OBJ);
 
+        return $category;
+    }
+    public function addCategory($name, $season)
+    {
 
+        //añadir: poder elegir la categoría a la que pertenecen utilizando un select que muestre el nombre de la misma. 
 
+        $query = $this->db->prepare('INSERT INTO category VALUES(id=NULL,?, ?)');
+
+        $query->execute([$name, $season]);
+
+        //muestro el ultimo id que hay
+        return $this->db->lastInsertId();
+    }
 }

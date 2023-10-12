@@ -2,7 +2,7 @@
     class db {
 
         private $host = "localhost";
-        private $dbname = "db_tpe";
+        private $dbname = "db_ecommerce";
         private $user = "root";
         private $password = "";
 

@@ -10,6 +10,7 @@ class ProductController{
     private $model;
     private $view;
     private $categoryModel;
+    private $cfk;
 
     public function __construct(){
         //me aseguro que este logueado
@@ -27,6 +28,7 @@ class ProductController{
 
             $this->view->showAllProducts($products);
 
+
         }else{
 
             echo "Error: No hay productos en la DB";
@@ -43,6 +45,7 @@ class ProductController{
 
             $this->view->showDescriptionProduct($product);    
 
+
         }else{
 
             echo "Error: No hay productos en la DB para mostrar";
@@ -52,5 +55,12 @@ class ProductController{
     public function showProductsBySeason($season){
         $products=$this->model->getProductBySeason($season);
         $this->view->showProductsBySeason($products);
+    }
+
+    public function showCategorySeason($id){
+
+        $season = $this->model->getCategoryId($id);
+        var_dump($season);
+
     }
 }

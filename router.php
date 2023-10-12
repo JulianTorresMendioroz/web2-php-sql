@@ -59,10 +59,6 @@ switch ($params[0]) {
    case 'eliminarProducto':
       $AdminController->deleteProductById($params[1]);
    break;
-   case 'winter':
-      $
-
-   
     default: 
         echo "404 Page Not Found";
         break;

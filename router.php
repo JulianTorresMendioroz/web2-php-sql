@@ -51,7 +51,13 @@ switch ($params[0]) {
       $AdminController->addProduct();
    break;
    case 'actualizar':
-      $AdminController->addProduct();
+      $AdminController->showAllUpdatedProduct();
+   break;
+   case 'actualizarProducto':
+      $AdminController->showDescriptionProductUpdated($params[1]);
+   break;
+   case 'actualizarProductoTotal':     //id        name     description    price 
+      $AdminController->updateProduct($params[1],$params[2],$params[3],$params[4]);
    break;
    case 'eliminar':
       $AdminController->showDeleteProds();
@@ -59,8 +65,6 @@ switch ($params[0]) {
    case 'eliminarProducto':
       $AdminController->deleteProductById($params[1]);
    break;
-<<<<<<< HEAD
-=======
    // case 'category':
    //    $categoryController->showCategoryBySeason();
    case 'listarCategoria':
@@ -79,12 +83,8 @@ switch ($params[0]) {
       $AdminController->showDeleteCat();
    break;
    case 'eliminarCategoria':
-      $AdminController->deleteCategoryById($params[1]);
+      $AdminController->showdeleteCategoryById($params[1]);
    break;
-
-   
-
->>>>>>> 521e86da14f1bf704e9fc93ebab47a9a41fde41c
     default: 
         echo "404 Page Not Found";
         break;

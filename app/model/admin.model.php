@@ -27,6 +27,17 @@ class AdminModel
         return $products;
     }
 
+    public function getProductById($id){
+
+        $query = $this->db->prepare('SELECT * FROM products WHERE id=?');
+    
+        $query->execute([$id]);
+    
+        $product = $query->fetch(PDO::FETCH_OBJ);
+    
+        return $product;
+    }
+
     public function addProduct($img, $name, $description, $price, $fk_category)
     {
 
@@ -40,26 +51,20 @@ class AdminModel
         return $this->db->lastInsertId();
     }
 
-    public function updatePrice($price)
-    {
-        //temrinar funcion de update
+    function updateProduct($name, $description, $price, $id) {    
+        $query = $this->db->prepare('UPDATE products SET name = ?, description = ?, price = ? WHERE id = ?');
+        $query->execute([$name, $description, $price, $id]);
     }
 
     public function deleteProductById($id)
     {
 
         $query = $this->db->prepare('DELETE FROM products WHERE id=?');
-
         $query->execute([$id]);
-
         $product = $query->fetch(PDO::FETCH_OBJ);
-
         return $product;
     }
 
-<<<<<<< HEAD
-   
-=======
     //CATEGORY
     public function allCategory()
     {
@@ -91,7 +96,6 @@ class AdminModel
         $query = $this->db->prepare('INSERT INTO category VALUES(id=NULL,?, ?)');
 
         $query->execute([$name, $season]);
->>>>>>> 521e86da14f1bf704e9fc93ebab47a9a41fde41c
 
         //muestro el ultimo id que hay
         return $this->db->lastInsertId();

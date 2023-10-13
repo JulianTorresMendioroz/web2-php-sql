@@ -50,7 +50,7 @@ class AuthController {
             AuthHelper::login($userDB);
             header("Location:" . BASE_URL);
         } else {
-            $this->view->showError();
+            $this->view->showError('El usuario y a contraseña no coinciden con los datos de la DB');
         }
     }
 }

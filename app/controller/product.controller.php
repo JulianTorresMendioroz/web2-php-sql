@@ -52,10 +52,6 @@ class ProductController{
 
         }
     }
-    public function showProductsBySeason($season){
-        $products=$this->model->getProductBySeason($season);
-        $this->view->showProductsBySeason($products);
-    }
 
     public function showCategorySeason($id){
 

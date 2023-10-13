@@ -32,20 +32,6 @@ class CategoryModel {
         
         return $categories;
     }
-   
-    public function deleteCategory($id){
-        $query=$this->db->prepare('DELETE FROM category WHERE id=?');
-
-        $query->execute([$id]);
-
-        $categories= $query->fetch(PDO::FETCH_OBJ);
-    }
-    public function addCategory($id,$name,$season){
-
-        $query = $this->db->prepare('INSERT INTO category VALUES id=NULL,?,?');
-
-        $query->execute([$id,$name,$season]);
-    }
 
     public function getCategory($fkProduct) {
 

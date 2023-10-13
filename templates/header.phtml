@@ -23,13 +23,9 @@
         <a class="nav-link active" aria-current="page" href="home">Home</a>
         <a class="nav-link active" href="category">Invierno</a>
         <a class="nav-link active" href="category">Verano</a>
-        <div class="buttons"><?php if(isset($_SESSION['user'])&&($_SESSION['logged'] == true)&&($_SESSION['rol'] == 'user')){
-          var_dump($_SESSION);
-          ?>
+        <div class="buttons"><?php if(isset($_SESSION['user'])&&($_SESSION['logged'] == true)&&($_SESSION['rol'] == 'user')) :?>
            <a type="button" href="logout" class="btn btn-info">Salir - Usuario <?php echo $_SESSION['user'] ?></a>
-           <?php
-        } else if(isset($_SESSION['user'])&&($_SESSION['logged'] == true)&&($_SESSION['rol'] == 'admin')){
-          ?>
+        <?php elseif(isset($_SESSION['user'])&&($_SESSION['logged'] == true)&&($_SESSION['rol'] == 'admin')) : ?>
           <a type="button" href="listar" class="btn btn-primary">Listar todos los productos</a>
           <a type="button" href="agregar" class="btn btn-success">Agregar productos</a>
           <a type="button" href="actualizar" class="btn btn-secondary">Actualizar productos</a>
@@ -39,13 +35,9 @@
           <a type="button" href="actualizarCategoria" class="btn btn-secondary">Actualizar categorias</a>
           <a type="button" href="eliminarCategoria" class="btn btn-danger">Eliminar categoria</a>
           <a type="button" href="logout" class="btn btn-info">Salir - Usuario <?php echo  $_SESSION['user'] ?></a>
-          <?php
-        } else {
-      ?>
+          <?php endif ?>
           <a type="button" href="register" class="btn btn-info">Registrarse</a>
           <a type="button" href="login" class="btn btn-warning">Ingresar</a>?>  
-          <?php
-        }?>
         </div>
       </div>
     </div>

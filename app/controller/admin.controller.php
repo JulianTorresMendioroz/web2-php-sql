@@ -89,9 +89,6 @@ class AdminController
             $this->view->showError('No se pudo actualizar el producto');
         }
     }
- 
-//cuando apriete actualizar, lo mando a una vista con ese producto, le pongo un input para actualizar el precio, 
-//y que cuando le de click se ejecute la funcion de update
     
     public function updateProduct($name, $description, $price, $id){
 

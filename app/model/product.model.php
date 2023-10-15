@@ -14,7 +14,7 @@ class ProductModel {
 
     public function getAllProducts(){
 
-        $query = $this->db->prepare('SELECT * FROM products');
+        $query = $this->db->prepare('SELECT * FROM products INNER JOIN category ON category.id = products.fk_id_category');
 
         $query->execute();
 

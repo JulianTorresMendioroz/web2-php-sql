@@ -17,8 +17,9 @@ class AdminModel
 
     public function getAllProducts()
     {
-
-        $query = $this->db->prepare('SELECT * FROM products');
+        //Importante: En cada ítem siempre se debe mostrar el nombre de la categoría a la que pertenece.
+        //muestro la categoria/temporada de cada producto terminado.
+        $query = $this->db->prepare('SELECT * FROM products INNER JOIN category ON category.id = products.fk_id_category');
 
         $query->execute();
 

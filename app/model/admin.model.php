@@ -83,13 +83,16 @@ class AdminModel extends Model {
     public function addCategory($name, $season)
     {
 
-        //añadir: poder elegir la categoría a la que pertenecen utilizando un select que muestre el nombre de la misma. 
-
+        
         $query = $this->db->prepare('INSERT INTO category VALUES(id=NULL,?, ?)');
 
         $query->execute([$name, $season]);
 
         //muestro el ultimo id que hay
         return $this->db->lastInsertId();
+    }
+    function updateCategory($id,$name,$season) {    
+        $query = $this->db->prepare('UPDATE category SET name = ?, season = ?, WHERE id = ?');
+        $query->execute([$name, $season, $id]);
     }
 }

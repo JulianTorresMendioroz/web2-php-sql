@@ -12,7 +12,7 @@ class AdminController
     private $model;
     private $view;
     private $AdminView;
-    private $modelCategories;
+    private $Categorymodel;
     private $categoryView;
 
     public function __construct()
@@ -111,16 +111,18 @@ class AdminController
     public function showListCat()
     {
 
-        $categories = $this->modelCategories->getAllCategories();
+        $categories = $this->model->AllCategory();
         if (!empty($categories)) {
-
-            $this->categoryView->showAllCategories($categories);
+            require_once 'templates/category.phtml';
+        }
+        else{
+            $this->view->showError('No hay categorias disponibles');
         }
     }
     public function showFormAddCategory()
     {
-
-        $this->AdminView->showFormAddCategory();
+        require_once 'templates/add_category_admin.phtml';
+       
     }
     public function showdeleteCategoryById($id)
     {
@@ -147,10 +149,32 @@ class AdminController
     }
     public function showDeleteCat()
     {
-        $categories = $this->modelCategories->getAllCategories();
+        $categories = $this->model->AllCategory();
 
         if (!empty($categories)) {
             $this->AdminView->showDeleteCat($categories);
+        }
+        $this->view->showError('No hay categorias');
+    }
+    public function showAllUpdatedCategories(){
+        $products = $this->model->AllCategory();
+        if(!empty($products)){
+            require_once './templates/updated_products_admin.phtml';
+        }else{
+            $this->view->showError('No se pudo actualizar el producto');
+        }
+    }
+    public function updateCategory($id,$name,$season){
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $season = $_POST['season'];
+
+
+        if(!empty($id)||!empty($name)||!empty($season)){
+            $this->model->updateCategory($id, $name, $season);
+            header("Location:" . BASE_URL);
+        }else{
+            $this->view->showError('No se pudo actualizar');
         }
     }
 }

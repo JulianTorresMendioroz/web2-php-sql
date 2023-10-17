@@ -5,11 +5,13 @@ class CategoryView
     
     public function showAllCategories($categories)
     {
+        require_once './templates/category.phtml';
+
 
     }
 
     public function showError()
     {
-        echo '<div class="alert alert-error">Error! No se han encontrado categorias</div>';
+        require_once './templates/error.phtml';
     }
 }

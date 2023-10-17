@@ -19,6 +19,7 @@ class AdminController
     {
         $this->model = new AdminModel();
         $this->view = new AuthView();
+        $this->modelCategories = new CategoryModel();
 
     }
 

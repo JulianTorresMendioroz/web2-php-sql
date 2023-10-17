@@ -76,8 +76,8 @@ switch ($params[0]) {
     case 'agregarCategoria':
       $AdminController->addCategory();
    break;
-   // case 'actualizarCategoria':
-   // $AdminController->updateCategory();
+   case'actualizarCategoria':
+   $AdminController->updateCategory($params[1],$params[2],$params[3]);
    break;
    case 'eliminarCategoria':
       $AdminController->showDeleteCat();

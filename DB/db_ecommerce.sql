@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-10-2023 a las 20:01:35
+-- Tiempo de generación: 17-10-2023 a las 17:52:50
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -29,17 +29,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `season` varchar(100) NOT NULL
+  `name_category` varchar(100) NOT NULL,
+  `season` varchar(100) NOT NULL,
+  `description` varchar(250) NOT NULL,
+  `creation_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `category`
 --
 
-INSERT INTO `category` (`id`, `name`, `season`) VALUES
-(1, 'Buzos', 'Invierno'),
-(2, 'Remeras', 'Verano');
+INSERT INTO `category` (`id`, `name_category`, `season`, `description`, `creation_date`) VALUES
+(1, 'Buzos', 'Invierno', '', '0000-00-00'),
+(2, 'Remeras', 'Verano', '', '0000-00-00'),
+(3, 'Camperas', 'Otoño', '', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -61,9 +64,6 @@ CREATE TABLE `client` (
 INSERT INTO `client` (`id`, `username`, `password`, `rol`) VALUES
 (1, 'daniel', '$2y$10$3vD1MXuFMH70znzv0j62F./jELxiey9vevpM1R23XDG5jLbuPL.fq', 'user'),
 (3, 'webadmin', '$2y$10$5vTCBDhKh91WK.Ws3oRdLe8//FxyvvfVCUcNT7uXThEC7CF.U2UCi', 'admin'),
-(4, 'pedro', '$2y$10$hSdqybvN1PtZIb.Dsbp1GOdDAWuB3IUqRHFM05P//8QIzxJlX8Oxi', 'user'),
-(5, 'lucas', '$2y$10$CkZALjtNhCigEs0hQhZUx.SPmCrgBfK4JQkdxuZ.RjeVCCG764m0y', 'user'),
-(6, 'juan', '$2y$10$gr752ZvuHn.GqmcVL2actOwi0Eadi69MclfMn8Yjh3sJCRbnNZceC', 'user'),
 (7, 'pepe', '$2y$10$2irYy8pPw7TqPrHB.haaG.KvtK1Mxwp2DZ0uyyVejh01WocxrrIna', 'user'),
 (8, 'dario', '$2y$10$3u55z21.eI1wuK/zErbyKOhw33Ytyg1oUc/Kes2B9cltNKp8t5jkO', 'user');
 
@@ -87,7 +87,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `img`, `name`, `description`, `price`, `fk_id_category`) VALUES
-(1, 'https://http2.mlstatic.com/D_NQ_NP_781887-MLA69230254891_052023-O.webp', 'Buzo Adidas', 'Buzo Adidas con capucha', 15000, 1);
+(1, 'https://http2.mlstatic.com/D_NQ_NP_781887-MLA69230254891_052023-O.webp', 'Buzo Adidas', 'Buzo Adidas Con Capucha y Lineas en las mangas', 17000, 1);
 
 --
 -- Índices para tablas volcadas
@@ -120,7 +120,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de la tabla `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `client`
@@ -132,7 +132,7 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas

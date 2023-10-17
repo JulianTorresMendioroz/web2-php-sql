@@ -1,16 +1,8 @@
 <?php 
 
-class UserModel{
+require_once 'app/model/model.db.php';
 
-    private $db;
-
-    public function __construct(){
-
-        require_once 'config_db/db.php';
-        $conn = new db(); 
-        $this->db = $conn->connection();
-
-    }
+class UserModel extends Model {
 
     public function getUsers($users){
 

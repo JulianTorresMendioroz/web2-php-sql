@@ -1,16 +1,8 @@
 <?php 
 
-class ProductModel {
+require_once './app/model/model.db.php';
 
-    private $db;
-
-    public function __construct(){
-
-        require_once 'config_db/db.php';
-        $conn = new db();
-        $this->db = $conn->connection();
-
-    }
+class ProductModel extends Model {
 
     public function getAllProducts(){
 

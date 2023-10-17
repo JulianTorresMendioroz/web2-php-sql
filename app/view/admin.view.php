@@ -8,11 +8,7 @@ class AdminView {
     public function showDeleteProds($products) {
         require_once 'templates/delete_products_admin.phtml';
     }
-
-    public function showProdsOfUpdated($products)
-    {
-        //Terminar
-    }
+    
     public function showFormAddCategory(){
         require_once 'templates/add_category_admin.phtml';
     }

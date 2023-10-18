@@ -121,6 +121,18 @@ class AdminController
             $this->view->showError('No hay categorias disponibles');
         }
     }
+    public function showListCatUpdate()
+    {
+
+        $categories = $this->model->AllCategory();
+        if (!empty($categories)) {
+            require_once 'templates/updated_categories_admin.phtml';
+        }
+        else{
+            $this->view->showError('No hay categorias disponibles');
+        }
+    }
+
     public function showFormAddCategory()
     {
         require_once 'templates/add_category_admin.phtml';
@@ -154,7 +166,10 @@ class AdminController
         if (!empty($categories)) {
             $this->AdminView->showDeleteCat($categories);
         }
-        $this->view->showError('No hay categorias');
+        else{
+            $this->view->showError('No hay categorias para eliminar');
+
+        }
     }
     public function showAllUpdatedCategories(){
         $products = $this->model->AllCategory();

@@ -74,14 +74,17 @@ switch ($params[0]) {
     case 'agregarCategoria':
       $AdminController->addCategory();
    break;
-   case'actualizarCategoria':
-   $AdminController->updateCategory($params[1],$params[2],$params[3]);
-   break;
+   // case'actualizarCategoria':
+   // $AdminController->updateCategory($params[1],$params[2],$params[3]);
+   // break;
+    case'actualizarCategoria':
+      $AdminController->showListCatUpdate();
+      break;
+    case 'eliminarCategoria':
+   $AdminController->showDeleteCat();
+    break;
    case 'eliminarCategoria':
-      $AdminController->showDeleteCat();
-   break;
-   case 'eliminarCategoria':
-      $AdminController->showdeleteCategoryById($params[1]);
+   $AdminController->showdeleteCategoryById($params[1]);
    break;
     default: 
         echo "404 Page Not Found";

@@ -84,7 +84,7 @@ switch ($params[0]) {
    $AdminController->showDeleteCat();
     break;
    case 'eliminarCategoria':
-   $AdminController->showdeleteCategoryById($params[1]);
+   $AdminController->deleteCategoryById($params[1]);
    break;
     default: 
         echo "404 Page Not Found";

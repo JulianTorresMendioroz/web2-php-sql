@@ -138,7 +138,7 @@ class AdminController
         require_once 'templates/add_category_admin.phtml';
        
     }
-    public function showdeleteCategoryById($id)
+    public function deleteCategoryById($id)
     {
 
         $this->model->deleteCategoryById($id);
@@ -164,7 +164,7 @@ class AdminController
         $categories = $this->model->AllCategory();
 
         if (!empty($categories)) {
-            $this->AdminView->showDeleteCat($categories);
+            require_once './templates/delete_category_admin.phtml';
         }
         else{
             $this->view->showError('No hay categorias para eliminar');

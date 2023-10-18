@@ -15,10 +15,12 @@ class AdminController
     private $modelCategories;
     private $categoryView;
 
+
     public function __construct()
     {
         $this->model = new AdminModel();
         $this->view = new AuthView();
+        $this->modelCategories = new CategoryModel();
 
     }
 

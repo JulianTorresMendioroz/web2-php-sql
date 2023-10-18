@@ -3,14 +3,12 @@
 require_once 'app/model/product.model.php';
 require_once 'app/view/product.view.php';
 require_once 'app/helpers/auth.helpers.php';
-require_once 'app/model/category.model.php';
 
 class ProductController{
 
     private $model;
     private $view;
-    private $categoryModel;
-    private $cfk;
+    private $viewError;
 
     public function __construct(){
         //me aseguro que este logueado
@@ -18,7 +16,7 @@ class ProductController{
         session_start();
         $this->model = new ProductModel();
         $this->view = new ProductView();
-        $this->categoryModel = new CategoryModel();
+        $this->viewError = new AuthView();
         }
 
     public function showAllProducts(){
@@ -31,7 +29,7 @@ class ProductController{
 
         }else{
 
-            echo "Error: No hay productos en la DB";
+           $this->viewError->showError('No hay productos en la DB');
 
         }
 
@@ -48,15 +46,9 @@ class ProductController{
 
         }else{
 
-            echo "Error: No hay productos en la DB para mostrar";
+            $this->viewError->showError('No hay productos en la DB para mostrar');
 
         }
     }
 
-    public function showCategorySeason($id){
-
-        $season = $this->model->getCategoryId($id);
-        var_dump($season);
-
-    }
 }

@@ -65,8 +65,6 @@ switch ($params[0]) {
    case 'eliminarProducto':
       $AdminController->deleteProductById($params[1]);
    break;
-   // case 'category':
-   //    $categoryController->showCategoryBySeason();
    case 'listarCategoria':
       $AdminController->showListCat();
    break;

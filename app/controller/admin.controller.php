@@ -12,7 +12,7 @@ class AdminController
     private $model;
     private $view;
     private $AdminView;
-    private $Categorymodel;
+    private $modelCategories;
     private $categoryView;
 
     public function __construct()
@@ -142,8 +142,6 @@ class AdminController
             $this->model->addCategory($name, $season);
             header("Location:" . BASE_URL);
         } else {
-            //feli tenes que añadir este error donde haya condiciones de if, con un mensaje para 
-            //mostrarle al usuario en caso de que no se cumpla la condicion
             $this->view->showError('No se pudo agregar categoria');
         }
     }
@@ -159,7 +157,7 @@ class AdminController
     public function showAllUpdatedCategories(){
         $products = $this->model->AllCategory();
         if(!empty($products)){
-            require_once './templates/updated_products_admin.phtml';
+            require_once './templates/updated_categories_admin.phtml';
         }else{
             $this->view->showError('No se pudo actualizar el producto');
         }
